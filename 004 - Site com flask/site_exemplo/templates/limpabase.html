@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col">
+                <form method="POST" action="" class="border p-4 mt-2" enctype="multipart/form-data">
+                    <legend>Editar Perfil</legend>
+                    <fieldset>
+                        <div class="form-group">
+                            {{ form.file_path.label(class="form-control-label") }}
+                            {% if form.file_path.errors %}
+                                {{ form.file_path(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for erro in form.file_path.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.file_path(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.separator.label(class="form-control-label") }}
+                            {% if form.separator.errors %}
+                                {{ form.separator(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for erro in form.separator.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                {{ form.separator(class="form-control") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.coluna_stonecode.label(class="form-control-label") }}
+                            {{ form.coluna_stonecode(class="form-control") }}
+
+                            {{ form.coluna_documento.label(class="form-control-label") }}
+                            {{ form.coluna_documento(class="form-control") }}
+
+                            {{ form.step.label(class="form-control-label") }}
+                            {{ form.step(class="form-control") }}
+                        </div>
+                        <hr>
+                    </fieldset>
+                    {{ form.botao_submit_editarperfil(class="btn btn-primary mt-2") }}
+                </form>
+
+            </div>
+        </div>
+        <h1>Em progresso</h1>
+    </div>
+{% endblock %}
